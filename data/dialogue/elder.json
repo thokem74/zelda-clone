@@ -1,0 +1,30 @@
+{
+  "intro": {
+    "speaker": "Elder",
+    "lines": [
+      "Hero, our cave gate key is missing.",
+      "Please search the cave chest and bring it back."
+    ]
+  },
+  "reminder": {
+    "speaker": "Elder",
+    "lines": [
+      "The cave is east of the village.",
+      "Return once you find the key."
+    ]
+  },
+  "completion": {
+    "speaker": "Elder",
+    "lines": [
+      "You found it!",
+      "I have unlocked the village gate for you."
+    ]
+  },
+  "post": {
+    "speaker": "Elder",
+    "lines": [
+      "The path ahead is open.",
+      "Stay brave."
+    ]
+  }
+}

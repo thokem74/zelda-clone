@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://cave"]
+
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="1_p"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/Slime.tscn" id="2_s"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="3_c"]
+[ext_resource type="PackedScene" path="res://scenes/world/Door.tscn" id="4_d"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="5_h"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="6_b"]
+[ext_resource type="PackedScene" path="res://scenes/world/Pickup.tscn" id="7_pu"]
+
+[node name="Cave" type="Node2D"]
+
+[node name="Ground" type="TileMapLayer" parent="."]
+
+[node name="Props" type="TileMapLayer" parent="."]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="from_overworld" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(40, 120)
+
+[node name="to_chest" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(160, 100)
+
+[node name="Player" parent="." instance=ExtResource("1_p")]
+position = Vector2(40, 120)
+
+[node name="ExitDoor" parent="." instance=ExtResource("4_d")]
+position = Vector2(24, 120)
+target_scene = "res://scenes/maps/Overworld.tscn"
+target_spawn = "from_cave"
+
+[node name="SlimeA" parent="." instance=ExtResource("2_s")]
+position = Vector2(120, 80)
+
+[node name="SlimeB" parent="." instance=ExtResource("2_s")]
+position = Vector2(170, 120)
+
+[node name="TreasureChest" parent="." instance=ExtResource("3_c")]
+position = Vector2(200, 96)
+spawn_pickup_scene = ExtResource("7_pu")
+
+[node name="HUD" parent="." instance=ExtResource("5_h")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("6_b")]

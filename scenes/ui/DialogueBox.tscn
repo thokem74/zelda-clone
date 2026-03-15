@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dialogue"]
+
+[ext_resource type="Script" path="res://scripts/ui/dialogue_box.gd" id="1_d"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+script = ExtResource("1_d")
+panel_path = NodePath("PanelContainer")
+speaker_label_path = NodePath("PanelContainer/MarginContainer/VBoxContainer/Speaker")
+line_label_path = NodePath("PanelContainer/MarginContainer/VBoxContainer/Line")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -120.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+
+[node name="Speaker" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+text = "Speaker"
+
+[node name="Line" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+text = "Line"
+autowrap_mode = 2

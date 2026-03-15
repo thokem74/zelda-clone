@@ -1,0 +1,8 @@
+{
+  "lost_key": {
+    "title": "The Lost Key",
+    "description": "Find the cave key and return it to the elder.",
+    "required_item": "village_key",
+    "unlock_flag": "gate_unlocked"
+  }
+}
