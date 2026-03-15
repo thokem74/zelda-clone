@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://hud"]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_h"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_h")
+hearts_label_path = NodePath("MarginContainer/VBoxContainer/HeartsLabel")
+objective_label_path = NodePath("MarginContainer/VBoxContainer/ObjectiveLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+
+[node name="HeartsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+text = "HP"
+
+[node name="ObjectiveLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+text = "Objective"
+autowrap_mode = 2

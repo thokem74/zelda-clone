@@ -1,0 +1,12 @@
+{
+  "village_key": {
+    "name": "Village Key",
+    "description": "Opens the old village gate.",
+    "icon": "res://assets/placeholders/items/village_key.png"
+  },
+  "heart": {
+    "name": "Heart",
+    "description": "Restores one health point.",
+    "icon": "res://assets/placeholders/items/heart.png"
+  }
+}

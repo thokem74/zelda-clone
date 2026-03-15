@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://overworld"]
+
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="1_p"]
+[ext_resource type="PackedScene" path="res://scenes/npc/NPC.tscn" id="2_n"]
+[ext_resource type="PackedScene" path="res://scenes/world/Door.tscn" id="3_d"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="4_h"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="5_b"]
+[ext_resource type="Script" path="res://scripts/world/gate.gd" id="6_g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
+size = Vector2(32, 16)
+
+[node name="Overworld" type="Node2D"]
+
+[node name="Ground" type="TileMapLayer" parent="."]
+
+[node name="Props" type="TileMapLayer" parent="."]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="player_start" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(64, 64)
+
+[node name="from_cave" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(180, 64)
+
+[node name="Player" parent="." instance=ExtResource("1_p")]
+position = Vector2(64, 64)
+
+[node name="Elder" parent="." instance=ExtResource("2_n")]
+position = Vector2(100, 80)
+
+[node name="CaveEntrance" parent="." instance=ExtResource("3_d")]
+position = Vector2(220, 80)
+target_scene = "res://scenes/maps/Cave.tscn"
+target_spawn = "from_overworld"
+
+[node name="Gate" type="StaticBody2D" parent="."]
+position = Vector2(300, 90)
+script = ExtResource("6_g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
+shape = SubResource("RectangleShape2D_gate")
+
+[node name="HUD" parent="." instance=ExtResource("4_h")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("5_b")]
