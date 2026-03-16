@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	velocity = chase_vector * move_speed + _knockback_velocity
 	_knockback_velocity = _knockback_velocity.move_toward(Vector2.ZERO, 250.0 * delta)
 	move_and_slide()
-	sprite.play("move" if chase_vector != Vector2.ZERO else "idle")
+	_play_animation_if_available("move" if chase_vector != Vector2.ZERO else "idle")
 
 func receive_damage(amount: int, from_position: Vector2) -> void:
 	hp -= amount
@@ -55,3 +55,10 @@ func _on_contact_hitbox_area_entered(area: Area2D) -> void:
 	var player := area.get_parent()
 	if player.has_method("receive_damage"):
 		player.call("receive_damage", contact_damage, global_position)
+
+func _play_animation_if_available(animation_name: StringName) -> void:
+	if sprite.sprite_frames == null:
+		return
+	if not sprite.sprite_frames.has_animation(animation_name):
+		return
+	sprite.play(animation_name)

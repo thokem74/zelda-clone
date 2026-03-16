@@ -69,30 +69,37 @@ func _update_animation(input_vector: Vector2) -> void:
 	# Placeholder animation names. Create animations: idle_up/down/side, walk_up/down/side, attack_up/down/side.
 	if not can_attack:
 		if facing == Vector2.UP:
-			sprite.play("attack_up")
+			_play_animation_if_available("attack_up")
 		elif facing == Vector2.DOWN:
-			sprite.play("attack_down")
+			_play_animation_if_available("attack_down")
 		else:
-			sprite.play("attack_side")
+			_play_animation_if_available("attack_side")
 			sprite.flip_h = facing == Vector2.LEFT
 		return
 
 	if input_vector == Vector2.ZERO:
 		if facing == Vector2.UP:
-			sprite.play("idle_up")
+			_play_animation_if_available("idle_up")
 		elif facing == Vector2.DOWN:
-			sprite.play("idle_down")
+			_play_animation_if_available("idle_down")
 		else:
-			sprite.play("idle_side")
+			_play_animation_if_available("idle_side")
 			sprite.flip_h = facing == Vector2.LEFT
 	else:
 		if facing == Vector2.UP:
-			sprite.play("walk_up")
+			_play_animation_if_available("walk_up")
 		elif facing == Vector2.DOWN:
-			sprite.play("walk_down")
+			_play_animation_if_available("walk_down")
 		else:
-			sprite.play("walk_side")
+			_play_animation_if_available("walk_side")
 			sprite.flip_h = facing == Vector2.LEFT
+
+func _play_animation_if_available(animation_name: StringName) -> void:
+	if sprite.sprite_frames == null:
+		return
+	if not sprite.sprite_frames.has_animation(animation_name):
+		return
+	sprite.play(animation_name)
 
 func start_attack() -> void:
 	can_attack = false

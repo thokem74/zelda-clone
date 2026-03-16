@@ -40,7 +40,7 @@ func open_chest() -> void:
 
 func _apply_open_visual() -> void:
 	# Placeholder animation names: "closed", "open"
-	sprite.play("open")
+	_play_animation_if_available("open")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -49,3 +49,10 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = false
+
+func _play_animation_if_available(animation_name: StringName) -> void:
+	if sprite.sprite_frames == null:
+		return
+	if not sprite.sprite_frames.has_animation(animation_name):
+		return
+	sprite.play(animation_name)
