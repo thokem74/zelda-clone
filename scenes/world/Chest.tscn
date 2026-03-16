@@ -1,14 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://chest"]
+[gd_scene load_steps=7 format=3 uid="uid://chest"]
 
 [ext_resource type="Script" path="res://scripts/world/chest.gd" id="1_c"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/chest_closed.svg" id="2_cc"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/chest_open.svg" id="3_co"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(16, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chest"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cc")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_co")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
 
 [node name="Chest" type="Node2D" groups=["interactables"]]
 script = ExtResource("1_c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_chest")
+animation = &"closed"
 
 [node name="InteractArea" type="Area2D" parent="."]
 

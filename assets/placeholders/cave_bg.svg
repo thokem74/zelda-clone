@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+<rect width="640" height="360" fill="#1f2126"/>
+<rect x="18" y="18" width="604" height="324" rx="18" fill="#333842"/>
+<rect x="42" y="42" width="556" height="276" rx="14" fill="#4b4f5a"/>
+<path d="M38 274 C140 230, 238 236, 336 266 S508 300, 602 260 L602 318 L38 318 Z" fill="#6b5b44"/>
+<rect x="44" y="92" width="64" height="118" rx="6" fill="#26282f"/>
+<rect x="530" y="76" width="58" height="98" rx="6" fill="#26282f"/>
+<rect x="506" y="216" width="72" height="76" rx="6" fill="#26282f"/>
+<circle cx="136" cy="88" r="8" fill="#f2c66d"/>
+<circle cx="500" cy="94" r="8" fill="#f2c66d"/>
+<circle cx="422" cy="238" r="8" fill="#f2c66d"/>
+<rect x="26" y="136" width="46" height="88" rx="6" fill="#7d6642"/>
+<ellipse cx="48" cy="136" rx="28" ry="12" fill="#463423"/>
+<rect x="478" y="132" width="90" height="94" rx="8" fill="#5b4a35"/>
+<rect x="496" y="150" width="54" height="58" rx="4" fill="#463423"/>
+<path d="M240 110 L264 74 L288 110 Z" fill="#22242b"/>
+<path d="M318 96 L344 50 L370 96 Z" fill="#22242b"/>
+<path d="M402 104 L426 60 L450 104 Z" fill="#22242b"/>
+</svg>

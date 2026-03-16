@@ -1,7 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://player"]
+[gd_scene load_steps=15 format=3 uid="uid://player"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p"]
 [ext_resource type="Script" path="res://scripts/player/sword_hitbox.gd" id="2_s"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player_down.svg" id="3_pd"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player_step_down.svg" id="4_psd"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player_up.svg" id="5_pu"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player_step_up.svg" id="6_psu"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player_side.svg" id="7_ps"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player_step_side.svg" id="8_pss"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player_attack_down.svg" id="9_pad"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player_attack_up.svg" id="10_pau"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player_attack_side.svg" id="11_pas"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
 radius = 6.0
@@ -9,11 +18,99 @@ radius = 6.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sword"]
 size = Vector2(14, 10)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_player"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_pad")
+}],
+"loop": true,
+"name": &"attack_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_pas")
+}],
+"loop": true,
+"name": &"attack_side",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_pau")
+}],
+"loop": true,
+"name": &"attack_up",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pd")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ps")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pu")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_psd")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pss")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_psu")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 7.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_p")
 sword_hitbox_path = NodePath("SwordHitbox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_player")
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_body")

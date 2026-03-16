@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://door"]
+[gd_scene load_steps=5 format=3 uid="uid://door"]
 
 [ext_resource type="Script" path="res://scripts/world/door.gd" id="1_d"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/door_overworld.svg" id="2_dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(20, 20)
 
 [node name="Door" type="Area2D"]
 script = ExtResource("1_d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("2_dt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1")

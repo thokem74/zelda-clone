@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cave"]
+[gd_scene load_steps=11 format=3 uid="uid://cave"]
 
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="1_p"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/Slime.tscn" id="2_s"]
@@ -7,8 +7,18 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="5_h"]
 [ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="6_b"]
 [ext_resource type="PackedScene" path="res://scenes/world/Pickup.tscn" id="7_pu"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/cave_bg.svg" id="8_bg"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/door_cave.svg" id="9_cd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chest_wall"]
+size = Vector2(18, 160)
 
 [node name="Cave" type="Node2D"]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(320, 180)
+texture = ExtResource("8_bg")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 
@@ -17,28 +27,37 @@
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="from_overworld" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(40, 120)
+position = Vector2(78, 250)
 
 [node name="to_chest" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(160, 100)
+position = Vector2(454, 234)
 
 [node name="Player" parent="." instance=ExtResource("1_p")]
-position = Vector2(40, 120)
+position = Vector2(78, 250)
 
 [node name="ExitDoor" parent="." instance=ExtResource("4_d")]
-position = Vector2(24, 120)
+position = Vector2(48, 255)
 target_scene = "res://scenes/maps/Overworld.tscn"
 target_spawn = "from_cave"
 
+[node name="Sprite2D" parent="ExitDoor"]
+texture = ExtResource("9_cd")
+
 [node name="SlimeA" parent="." instance=ExtResource("2_s")]
-position = Vector2(120, 80)
+position = Vector2(262, 224)
 
 [node name="SlimeB" parent="." instance=ExtResource("2_s")]
-position = Vector2(170, 120)
+position = Vector2(350, 246)
 
 [node name="TreasureChest" parent="." instance=ExtResource("3_c")]
-position = Vector2(200, 96)
+position = Vector2(522, 238)
 spawn_pickup_scene = ExtResource("7_pu")
+
+[node name="ChestWall" type="StaticBody2D" parent="."]
+position = Vector2(474, 230)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChestWall"]
+shape = SubResource("RectangleShape2D_chest_wall")
 
 [node name="HUD" parent="." instance=ExtResource("5_h")]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://npc"]
+[gd_scene load_steps=5 format=3 uid="uid://npc"]
 
 [ext_resource type="Script" path="res://scripts/npc/npc.gd" id="1_n"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/elder.svg" id="2_e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 10.0
@@ -9,6 +10,9 @@ radius = 10.0
 script = ExtResource("1_n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("2_e")
 
 [node name="InteractArea" type="Area2D" parent="."]
 
