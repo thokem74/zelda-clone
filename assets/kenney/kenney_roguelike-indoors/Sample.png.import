@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4fetiann3gt0"
-path="res://.godot/imported/world_tileset.png-a558ce5668feb977163096060c4516db.ctex"
+uid="uid://bt6i4pby1jpev"
+path="res://.godot/imported/Sample.png-aa7f26bd4b0bfff0fd756892e64ea112.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/world_tileset.png"
-dest_files=["res://.godot/imported/world_tileset.png-a558ce5668feb977163096060c4516db.ctex"]
+source_file="res://assets/kenney/kenney_roguelike-indoors/Sample.png"
+dest_files=["res://.godot/imported/Sample.png-aa7f26bd4b0bfff0fd756892e64ea112.ctex"]
 
 [params]
 

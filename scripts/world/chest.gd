@@ -1,5 +1,8 @@
 extends Node2D
 
+const CLOSED_REGION := Rect2(306, 0, 16, 16)
+const OPEN_REGION := Rect2(323, 0, 16, 16)
+
 @export var item_id: String = "village_key"
 @export var amount: int = 1
 @export var quest_to_update: String = "lost_key"
@@ -15,6 +18,7 @@ func _ready() -> void:
 	add_to_group("interactables")
 	interact_area.body_entered.connect(_on_body_entered)
 	interact_area.body_exited.connect(_on_body_exited)
+	sprite.region_rect = CLOSED_REGION
 	if QuestManager.get_flag(opened_flag_name):
 		_apply_open_visual()
 
@@ -39,7 +43,7 @@ func open_chest() -> void:
 	_apply_open_visual()
 
 func _apply_open_visual() -> void:
-	sprite.frame = 1
+	sprite.region_rect = OPEN_REGION
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
