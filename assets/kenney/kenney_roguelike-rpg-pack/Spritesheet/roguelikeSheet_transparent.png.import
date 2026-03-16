@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1d4bouj1r8wt"
-path="res://.godot/imported/player_tileset.png-bcf2153fa13854873bdcf67e426eae70.ctex"
+uid="uid://d5simjua3d4e"
+path="res://.godot/imported/roguelikeSheet_transparent.png-a4cc47467f97058f4624948d1739e54f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/player_tileset.png"
-dest_files=["res://.godot/imported/player_tileset.png-bcf2153fa13854873bdcf67e426eae70.ctex"]
+source_file="res://assets/kenney/kenney_roguelike-rpg-pack/Spritesheet/roguelikeSheet_transparent.png"
+dest_files=["res://.godot/imported/roguelikeSheet_transparent.png-a4cc47467f97058f4624948d1739e54f.ctex"]
 
 [params]
 

@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+const SLIME_IDLE_REGION := Rect2(0, 51, 16, 16)
+const SLIME_MOVE_REGIONS := [
+	Rect2(0, 51, 16, 16),
+	Rect2(17, 51, 16, 16),
+]
+
 @export var move_speed: float = 45.0
 @export var max_hp: int = 2
 @export var aggro_range: float = 120.0
@@ -61,6 +67,6 @@ func _on_contact_hitbox_area_entered(area: Area2D) -> void:
 
 func _update_sprite(is_moving: bool) -> void:
 	if not is_moving:
-		sprite.frame = 1
+		sprite.region_rect = SLIME_IDLE_REGION
 		return
-	sprite.frame = 1 + (int(floor(_frame_timer * 6.0)) % 2)
+	sprite.region_rect = SLIME_MOVE_REGIONS[int(floor(_frame_timer * 6.0)) % SLIME_MOVE_REGIONS.size()]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk12e3w3ttrtu"
-path="res://.godot/imported/npc_tileset.png-9bae8c5dd6e8932fd57c88ece8bf98cd.ctex"
+uid="uid://kvv37fx5qwap"
+path="res://.godot/imported/Sample.png-3aaf71fa42de319b9db0b776d0b56f83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/npc_tileset.png"
-dest_files=["res://.godot/imported/npc_tileset.png-9bae8c5dd6e8932fd57c88ece8bf98cd.ctex"]
+source_file="res://assets/kenney/kenney_roguelike-characters/Sample.png"
+dest_files=["res://.godot/imported/Sample.png-3aaf71fa42de319b9db0b776d0b56f83.ctex"]
 
 [params]
 

@@ -17,16 +17,16 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hurtbox: Area2D = $Hurtbox
 
-const PLAYER_FRAME_MAP := {
-	"idle_down": 0,
-	"walk_down": [0, 1],
-	"attack_down": 2,
-	"idle_up": 3,
-	"walk_up": [3, 4],
-	"attack_up": 5,
-	"idle_side": 6,
-	"walk_side": [6, 7],
-	"attack_side": 8,
+const PLAYER_REGION_MAP := {
+	"idle_down": Rect2(0, 153, 16, 16),
+	"walk_down": [Rect2(0, 153, 16, 16), Rect2(17, 153, 16, 16)],
+	"attack_down": Rect2(17, 153, 16, 16),
+	"idle_up": Rect2(0, 153, 16, 16),
+	"walk_up": [Rect2(0, 153, 16, 16), Rect2(17, 153, 16, 16)],
+	"attack_up": Rect2(17, 153, 16, 16),
+	"idle_side": Rect2(0, 153, 16, 16),
+	"walk_side": [Rect2(0, 153, 16, 16), Rect2(17, 153, 16, 16)],
+	"attack_side": Rect2(17, 153, 16, 16),
 }
 
 var _current_animation: StringName = &"idle_down"
@@ -110,20 +110,20 @@ func _update_animation(input_vector: Vector2, delta: float) -> void:
 			sprite.flip_h = facing == Vector2.LEFT
 
 func _set_animation(animation_name: StringName) -> void:
-	if not PLAYER_FRAME_MAP.has(animation_name):
+	if not PLAYER_REGION_MAP.has(animation_name):
 		return
 	if _current_animation != animation_name:
 		_current_animation = animation_name
 		_frame_timer = 0.0
 
-	var frame_data: Variant = PLAYER_FRAME_MAP[animation_name]
+	var frame_data: Variant = PLAYER_REGION_MAP[animation_name]
 	if frame_data is Array:
 		var frames: Array = frame_data
 		var frame_index := int(floor(_frame_timer * 8.0)) % frames.size()
-		sprite.frame = frames[frame_index]
+		sprite.region_rect = frames[frame_index]
 		return
 
-	sprite.frame = int(frame_data)
+	sprite.region_rect = frame_data
 
 func start_attack() -> void:
 	can_attack = false

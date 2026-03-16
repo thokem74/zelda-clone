@@ -42,7 +42,8 @@ target_scene = "res://scenes/maps/Overworld.tscn"
 target_spawn = "from_cave"
 
 [node name="Sprite2D" parent="ExitDoor"]
-frame = 3
+region_enabled = true
+region_rect = Rect2(561, 0, 16, 16)
 
 [node name="SlimeA" parent="." instance=ExtResource("2_s")]
 position = Vector2(262, 224)
