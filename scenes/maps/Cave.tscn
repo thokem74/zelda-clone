@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cave"]
+[gd_scene load_steps=10 format=3 uid="uid://cave"]
 
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="1_p"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/Slime.tscn" id="2_s"]
@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="5_h"]
 [ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="6_b"]
 [ext_resource type="PackedScene" path="res://scenes/world/Pickup.tscn" id="7_pu"]
-[ext_resource type="Texture2D" path="res://assets/placeholders/cave_bg.svg" id="8_bg"]
-[ext_resource type="Texture2D" path="res://assets/placeholders/door_cave.svg" id="9_cd"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/background_tileset.png" id="8_bt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chest_wall"]
 size = Vector2(18, 160)
@@ -18,7 +17,9 @@ size = Vector2(18, 160)
 [node name="Backdrop" type="Sprite2D" parent="."]
 z_index = -10
 position = Vector2(320, 180)
-texture = ExtResource("8_bg")
+texture = ExtResource("8_bt")
+vframes = 2
+frame = 1
 
 [node name="Ground" type="TileMapLayer" parent="."]
 
@@ -41,7 +42,7 @@ target_scene = "res://scenes/maps/Overworld.tscn"
 target_spawn = "from_cave"
 
 [node name="Sprite2D" parent="ExitDoor"]
-texture = ExtResource("9_cd")
+frame = 3
 
 [node name="SlimeA" parent="." instance=ExtResource("2_s")]
 position = Vector2(262, 224)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://smw5xj6b78q3"
-path="res://.godot/imported/door_cave.svg-009d4a8796b34f7e3fcd1cbb1b6165ad.ctex"
+uid="uid://c1d4bouj1r8wt"
+path="res://.godot/imported/player_tileset.png-bcf2153fa13854873bdcf67e426eae70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/door_cave.svg"
-dest_files=["res://.godot/imported/door_cave.svg-009d4a8796b34f7e3fcd1cbb1b6165ad.ctex"]
+source_file="res://assets/tilesets/player_tileset.png"
+dest_files=["res://.godot/imported/player_tileset.png-bcf2153fa13854873bdcf67e426eae70.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

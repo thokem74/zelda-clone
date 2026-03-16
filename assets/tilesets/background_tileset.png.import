@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3jmwrjto7mrf"
-path="res://.godot/imported/player_step_down.svg-09f8902c046c64491636ce90a8875d76.ctex"
+uid="uid://dcsju25qrlslo"
+path="res://.godot/imported/background_tileset.png-2f1d86c5123d57ad16a930534251ac1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/player_step_down.svg"
-dest_files=["res://.godot/imported/player_step_down.svg-09f8902c046c64491636ce90a8875d76.ctex"]
+source_file="res://assets/tilesets/background_tileset.png"
+dest_files=["res://.godot/imported/background_tileset.png-2f1d86c5123d57ad16a930534251ac1c.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

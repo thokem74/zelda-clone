@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://overworld"]
+[gd_scene load_steps=9 format=3 uid="uid://overworld"]
 
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="1_p"]
 [ext_resource type="PackedScene" path="res://scenes/npc/NPC.tscn" id="2_n"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="4_h"]
 [ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="5_b"]
 [ext_resource type="Script" path="res://scripts/world/gate.gd" id="6_g"]
-[ext_resource type="Texture2D" path="res://assets/placeholders/overworld_bg.svg" id="7_bg"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/background_tileset.png" id="7_bt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
 size = Vector2(32, 16)
@@ -19,7 +19,9 @@ size = Vector2(108, 220)
 [node name="Backdrop" type="Sprite2D" parent="."]
 z_index = -10
 position = Vector2(320, 180)
-texture = ExtResource("7_bg")
+texture = ExtResource("7_bt")
+vframes = 2
+frame = 0
 
 [node name="Ground" type="TileMapLayer" parent="."]
 

@@ -1,42 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://slime"]
+[gd_scene load_steps=3 format=3 uid="uid://slime"]
 
 [ext_resource type="Script" path="res://scripts/enemies/slime.gd" id="1_s"]
-[ext_resource type="Texture2D" path="res://assets/placeholders/slime_idle.svg" id="2_si"]
-[ext_resource type="Texture2D" path="res://assets/placeholders/slime_move.svg" id="3_sm"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/npc_tileset.png" id="2_nt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 6.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_slime"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_si")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_si")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_sm")
-}],
-"loop": true,
-"name": &"move",
-"speed": 6.0
-}]
-
 [node name="Slime" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_s")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -10)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_slime")
-animation = &"idle"
+texture = ExtResource("2_nt")
+hframes = 3
+vframes = 1
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1")

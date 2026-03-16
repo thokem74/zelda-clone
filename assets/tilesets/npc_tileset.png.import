@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba2hweau0xnly"
-path="res://.godot/imported/cave_bg.svg-0793b33e0ccc8665c07c0f938b176861.ctex"
+uid="uid://dk12e3w3ttrtu"
+path="res://.godot/imported/npc_tileset.png-9bae8c5dd6e8932fd57c88ece8bf98cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/cave_bg.svg"
-dest_files=["res://.godot/imported/cave_bg.svg-0793b33e0ccc8665c07c0f938b176861.ctex"]
+source_file="res://assets/tilesets/npc_tileset.png"
+dest_files=["res://.godot/imported/npc_tileset.png-9bae8c5dd6e8932fd57c88ece8bf98cd.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
