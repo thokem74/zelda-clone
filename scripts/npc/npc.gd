@@ -22,6 +22,8 @@ func _process(_delta: float) -> void:
 		return
 	if DialogueManager.is_open():
 		return
+	if DialogueManager.was_closed_this_frame():
+		return
 	if Input.is_action_just_pressed("interact"):
 		interact()
 

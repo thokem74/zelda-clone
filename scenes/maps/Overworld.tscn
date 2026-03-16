@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://overworld"]
+[gd_scene load_steps=9 format=3 uid="uid://overworld"]
 
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="1_p"]
 [ext_resource type="PackedScene" path="res://scenes/npc/NPC.tscn" id="2_n"]
@@ -6,11 +6,22 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="4_h"]
 [ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="5_b"]
 [ext_resource type="Script" path="res://scripts/world/gate.gd" id="6_g"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/background_tileset.png" id="7_bt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
 size = Vector2(32, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pond_blocker"]
+size = Vector2(108, 220)
+
 [node name="Overworld" type="Node2D"]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(320, 180)
+texture = ExtResource("7_bt")
+vframes = 2
+frame = 0
 
 [node name="Ground" type="TileMapLayer" parent="."]
 
@@ -19,28 +30,39 @@ size = Vector2(32, 16)
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="player_start" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(64, 64)
+position = Vector2(104, 230)
 
 [node name="from_cave" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(180, 64)
+position = Vector2(398, 244)
 
 [node name="Player" parent="." instance=ExtResource("1_p")]
-position = Vector2(64, 64)
+position = Vector2(104, 230)
 
 [node name="Elder" parent="." instance=ExtResource("2_n")]
-position = Vector2(100, 80)
+position = Vector2(182, 210)
 
 [node name="CaveEntrance" parent="." instance=ExtResource("3_d")]
-position = Vector2(220, 80)
+position = Vector2(438, 266)
 target_scene = "res://scenes/maps/Cave.tscn"
 target_spawn = "from_overworld"
 
 [node name="Gate" type="StaticBody2D" parent="."]
-position = Vector2(300, 90)
+position = Vector2(320, 185)
 script = ExtResource("6_g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
 shape = SubResource("RectangleShape2D_gate")
+
+[node name="Polygon2D" type="Polygon2D" parent="Gate"]
+position = Vector2(0, -22)
+color = Color(0.454902, 0.317647, 0.160784, 1)
+polygon = PackedVector2Array(-20, 6, 20, 6, 16, 22, -16, 22)
+
+[node name="PondBlocker" type="StaticBody2D" parent="."]
+position = Vector2(548, 132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PondBlocker"]
+shape = SubResource("RectangleShape2D_pond_blocker")
 
 [node name="HUD" parent="." instance=ExtResource("4_h")]
 

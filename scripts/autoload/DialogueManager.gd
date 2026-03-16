@@ -7,12 +7,16 @@ var _dialogue_box: CanvasLayer
 var _active_lines: Array[String] = []
 var _line_index: int = -1
 var _speaker: String = ""
+var _last_closed_frame: int = -1
 
 func register_dialogue_box(dialogue_box: CanvasLayer) -> void:
 	_dialogue_box = dialogue_box
 
 func is_open() -> bool:
 	return _line_index >= 0
+
+func was_closed_this_frame() -> bool:
+	return _last_closed_frame == Engine.get_process_frames()
 
 func start_dialogue(dialogue_file: String, key: String) -> void:
 	if _dialogue_box == null:
@@ -46,6 +50,7 @@ func close_dialogue() -> void:
 	_line_index = -1
 	_active_lines.clear()
 	_speaker = ""
+	_last_closed_frame = Engine.get_process_frames()
 	if _dialogue_box != null:
 		_dialogue_box.call("close_dialogue")
 	Game.set_movement_locked(false)

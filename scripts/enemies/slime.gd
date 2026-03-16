@@ -12,8 +12,10 @@ var _player: Node2D
 var _last_hit_time: float = -99.0
 var _knockback_velocity: Vector2 = Vector2.ZERO
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: Sprite2D = $Sprite2D
 @onready var hitbox: Area2D = $ContactHitbox
+
+var _frame_timer: float = 0.0
 
 func _ready() -> void:
 	add_to_group("enemies")
@@ -21,6 +23,7 @@ func _ready() -> void:
 	hitbox.area_entered.connect(_on_contact_hitbox_area_entered)
 
 func _physics_process(delta: float) -> void:
+	_frame_timer += delta
 	if _player == null:
 		_player = get_tree().get_first_node_in_group("player") as Node2D
 	var chase_vector := Vector2.ZERO
@@ -32,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	velocity = chase_vector * move_speed + _knockback_velocity
 	_knockback_velocity = _knockback_velocity.move_toward(Vector2.ZERO, 250.0 * delta)
 	move_and_slide()
-	_play_animation_if_available("move" if chase_vector != Vector2.ZERO else "idle")
+	_update_sprite(chase_vector != Vector2.ZERO)
 
 func receive_damage(amount: int, from_position: Vector2) -> void:
 	hp -= amount
@@ -56,9 +59,8 @@ func _on_contact_hitbox_area_entered(area: Area2D) -> void:
 	if player.has_method("receive_damage"):
 		player.call("receive_damage", contact_damage, global_position)
 
-func _play_animation_if_available(animation_name: StringName) -> void:
-	if sprite.sprite_frames == null:
+func _update_sprite(is_moving: bool) -> void:
+	if not is_moving:
+		sprite.frame = 1
 		return
-	if not sprite.sprite_frames.has_animation(animation_name):
-		return
-	sprite.play(animation_name)
+	sprite.frame = 1 + (int(floor(_frame_timer * 6.0)) % 2)
